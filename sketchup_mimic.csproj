@@ -6,6 +6,19 @@
     <Nullable>enable</Nullable>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <AssemblyName>sketchup_mimic</AssemblyName>
+    <RootNamespace>sketchup_mimic</RootNamespace>
+  </PropertyGroup>
+
+  <!-- Publish as a single self-contained Windows executable.
+       Use:  dotnet publish -c Release  (or run publish.ps1) -->
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <PublishDir>$(MSBuildThisFileDirectory)publish\</PublishDir>
   </PropertyGroup>
 
   <ItemGroup>
