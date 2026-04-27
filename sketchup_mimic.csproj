@@ -1,17 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <DockerfileContext>.</DockerfileContext>
     <AssemblyName>sketchup_mimic</AssemblyName>
-    <RootNamespace>sketchup_mimic</RootNamespace>
+    <RootNamespace>SketchUpMimic</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <!-- Publish as a single self-contained Windows executable.
-       Use:  dotnet publish -c Release  (or run publish.ps1) -->
+  <!-- Publish a single self-contained Windows .exe to .\publish\
+       Use:  dotnet publish -c Release   (or run publish.ps1) -->
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SelfContained>true</SelfContained>
@@ -20,9 +21,5 @@
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
     <PublishDir>$(MSBuildThisFileDirectory)publish\</PublishDir>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
-  </ItemGroup>
 
 </Project>
